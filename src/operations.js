@@ -37,7 +37,7 @@ async function mint() {
     value: parseInt("1") + '0'.repeat(18),
   }])
 
-  console.log(signingService)
+  //console.log(signingService)
     signingService
       .signer("0xD5f62D68bcF62EBAd74e4e1eD721ff867f861Fd5")
       .gas(200000) 

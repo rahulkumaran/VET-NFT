@@ -4,19 +4,10 @@
       <b-card style="max-width: 30rem;" :header="myaddress">
         <p>{{myamount}} <span class="text-primary">VTHO</span></p>
 
-        <b-form-group label="To Address:" label-for="toaddress">
-          <b-form-input id="toaddress" v-model.trim="toaddress"></b-form-input>
-        </b-form-group>
+        
 
-        <b-form-group label="Transfer Amount" label-for="toamount">
-          <b-input-group append="VTHO">
-            <b-form-input id="toamount" type="number" min="0" v-model.number="toamount">
-            </b-form-input>
-          </b-input-group>
-        </b-form-group>
-
-        <b-button variant="primary" v-on:click="transfer">
-          Transfer
+        <b-button variant="primary" v-on:click="mint">
+          Mint
         </b-button>
       </b-card>
     </div>
@@ -55,9 +46,9 @@ export default {
           setTimeout(() => { this.refreshTokenBalance() }, 3000)
         })
     },
-    transfer () { // Confrim and send out a transfer.
-      const evmAmount = utils.humanToEVM(this.toamount.toString(), 18)
-      operations.mint(1)
+    mint () { // Confrim and send out a mint.
+      //const evmAmount = utils.humanToEVM(this.toamount.toString(), 18)
+      operations.mint()
         .then(result => {alert(result)})
         .catch(e => {alert(e)})
     }
